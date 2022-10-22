@@ -527,8 +527,7 @@ export const defaultThemeMap = {
   maxInlineSize: "space",
   borderWidth: "borderWeights",
 };
-
-export default {
+const commonTheme = {
   prefix: "technext",
   theme: {
     ...defaultTokens,
@@ -540,3 +539,4 @@ export default {
   utils: defaultUtils,
   themeMap: defaultThemeMap,
 };
+export default commonTheme;
