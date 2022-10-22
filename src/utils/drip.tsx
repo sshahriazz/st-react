@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 
-import {styled, keyframes, VariantProps} from "../theme/stitches.config";
+import { styled, keyframes, VariantProps } from "../theme/stitches.config";
 import withDefaults from "../utils/with-defaults";
 import clsx from "../utils/clsx";
 
@@ -56,7 +56,15 @@ type DripVariants = VariantProps<typeof StyledDrip>;
 
 export type DripProps = Props & typeof defaultProps & DripVariants;
 
-const Drip: React.FC<DripProps> = ({visible, x, y, color, onCompleted, className, ...props}) => {
+const Drip: React.FC<DripProps> = ({
+  visible,
+  x,
+  y,
+  color,
+  onCompleted,
+  className,
+  ...props
+}) => {
   const dripRef = useRef<HTMLDivElement>(null);
   const top = Number.isNaN(+y) ? 0 : y - 10;
   const left = Number.isNaN(+x) ? 0 : x - 10;
@@ -76,10 +84,14 @@ const Drip: React.FC<DripProps> = ({visible, x, y, color, onCompleted, className
   if (!visible) return null;
 
   return (
-    <StyledDrip ref={dripRef} className={clsx("nextui-drip", className)} {...props}>
-      <svg height="20" style={{top, left}} viewBox="0 0 20 20" width="20">
+    <StyledDrip
+      ref={dripRef}
+      className={clsx("technext-drip", className)}
+      {...props}
+    >
+      <svg height="20" style={{ top, left }} viewBox="0 0 20 20" width="20">
         <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
-          <g className="nextui-drip-filler" fill={color}>
+          <g className="technext-drip-filler" fill={color}>
             <rect height="100%" rx="10" width="100%" />
           </g>
         </g>

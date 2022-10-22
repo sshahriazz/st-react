@@ -1,6 +1,6 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-import {styled, CSS} from "../theme/stitches.config";
+import { styled, CSS } from "../theme/stitches.config";
 import withDefaults from "../utils/with-defaults";
 import useRealShape from "../use-real-shape";
 
@@ -97,7 +97,7 @@ const Expand: React.FC<React.PropsWithChildren<ExpandProps>> = ({
       }}
       expanded={selfExpanded}
     >
-      <div ref={contentRef} className="nextui-expand-content">
+      <div ref={contentRef} className="technext-expand-content">
         {children}
       </div>
     </StyledExpand>

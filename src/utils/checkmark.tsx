@@ -1,11 +1,11 @@
-import type {CSS} from "../theme/stitches.config";
+import type { CSS } from "../theme/stitches.config";
 
-import React, {HTMLAttributes} from "react";
+import React, { HTMLAttributes } from "react";
 
-import {styled, keyframes} from "../theme/stitches.config";
+import { styled, keyframes } from "../theme/stitches.config";
 
 import clsx from "./clsx";
-import {__DEV__} from "./assertion";
+import { __DEV__ } from "./assertion";
 
 interface Props {
   css?: CSS;
@@ -50,23 +50,28 @@ const Checkmark: React.FC<CheckmarkProps> = (props) => {
 
   return (
     <StyledCheckmark
-      className={clsx("nextui-checkmark", className)}
-      css={{...(css as any)}}
+      className={clsx("technext-checkmark", className)}
+      css={{ ...(css as any) }}
       height={size || height}
       role="img"
       viewBox="0 0 52 52"
       width={size || width}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none" stroke={fill} strokeWidth={strokeWidth} />
+      <path
+        d="M14.1 27.2l7.1 7.2 16.7-16.8"
+        fill="none"
+        stroke={fill}
+        strokeWidth={strokeWidth}
+      />
     </StyledCheckmark>
   );
 };
 
 if (__DEV__) {
-  Checkmark.displayName = "NextUI.Checkmark";
+  Checkmark.displayName = "TechnextUI.Checkmark";
 }
 
-Checkmark.toString = () => ".nextui-checkmark";
+Checkmark.toString = () => ".technext-checkmark";
 
 export default Checkmark;

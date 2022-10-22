@@ -1,11 +1,15 @@
 import clsx from "../utils/clsx";
-import {rgbToRgba, hexToRGBA} from "../utils/color";
+import { rgbToRgba, hexToRGBA } from "../utils/color";
 
 import commonTheme from "./common";
 import defaultTheme from "./light-theme";
-import {ThemeType, TokenValue, TokenKeyName} from "./types";
+import { ThemeType, TokenValue, TokenKeyName } from "./types";
 
-export const getTokenValue = (token: TokenKeyName, tokenName: string, alpha = 1) => {
+export const getTokenValue = (
+  token: TokenKeyName,
+  tokenName: string,
+  alpha = 1
+) => {
   if (typeof document === "undefined" || !token) return "";
   let docStyle = getComputedStyle(document.documentElement);
   const tokenKey = `--${commonTheme.prefix}-${token}-${tokenName}`;
@@ -28,47 +32,56 @@ export const getTokenValue = (token: TokenKeyName, tokenName: string, alpha = 1)
 };
 
 export const getDocumentCSSTokens = () => {
-  const colorKeys = [...Object.keys(commonTheme.theme.colors), ...Object.keys(defaultTheme.colors)];
+  const colorKeys = [
+    ...Object.keys(commonTheme.theme.colors),
+    ...Object.keys(defaultTheme.colors),
+  ];
 
   const shadowKeys = Object.keys(defaultTheme.shadows);
 
   /**
    * accents1: {
-   *    prefix: "nextui"
+   *    prefix: "technext"
    *    scale: "colors"
    *    token: "accents1"
-   *    value: "var(--nextui-colors-gray100)"
+   *    value: "var(--technext-colors-gray100)"
    * }
    */
-  const colorTokens = colorKeys.reduce((acc: {[key in string]?: TokenValue}, crr: string) => {
-    const color = getTokenValue("colors", crr);
+  const colorTokens = colorKeys.reduce(
+    (acc: { [key in string]?: TokenValue }, crr: string) => {
+      const color = getTokenValue("colors", crr);
 
-    if (color) {
-      acc[crr] = {
-        prefix: commonTheme.prefix,
-        scale: "colors",
-        token: crr,
-        value: color,
-      };
-    }
+      if (color) {
+        acc[crr] = {
+          prefix: commonTheme.prefix,
+          scale: "colors",
+          token: crr,
+          value: color,
+        };
+      }
 
-    return acc;
-  }, {});
+      return acc;
+    },
+    {}
+  );
 
-  const shadowTokens = shadowKeys.reduce((acc: {[key in string]?: TokenValue}, crr: string) => {
-    const shadow = getTokenValue("shadows", crr);
+  const shadowTokens = shadowKeys.reduce(
+    (acc: { [key in string]?: TokenValue }, crr: string) => {
+      const shadow = getTokenValue("shadows", crr);
 
-    if (shadow) {
-      acc[crr] = {
-        prefix: commonTheme.prefix,
-        scale: "shadows",
-        token: crr,
-        value: shadow,
-      };
-    }
+      if (shadow) {
+        acc[crr] = {
+          prefix: commonTheme.prefix,
+          scale: "shadows",
+          token: crr,
+          value: shadow,
+        };
+      }
 
-    return acc;
-  }, {});
+      return acc;
+    },
+    {}
+  );
 
   return {
     colors: colorTokens,
@@ -113,8 +126,12 @@ export const changeTheme = (theme: ThemeType | string) => {
     el
       ?.getAttribute("class")
       ?.split(" ")
-      .filter((cls) => !cls.includes("theme") && !cls.includes("light") && !cls.includes("dark")) ||
-    [];
+      .filter(
+        (cls) =>
+          !cls.includes("theme") &&
+          !cls.includes("light") &&
+          !cls.includes("dark")
+      ) || [];
   const prevStyles =
     el
       ?.getAttribute("style")

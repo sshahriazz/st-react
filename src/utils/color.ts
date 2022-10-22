@@ -1,6 +1,9 @@
-import {normalColors, simpleColors} from "./prop-types";
+import { normalColors, simpleColors } from "./prop-types";
 
-export const getCssVar = (name: string, parent: HTMLElement | null | undefined = null) => {
+export const getCssVar = (
+  name: string,
+  parent: HTMLElement | null | undefined = null
+) => {
   if (typeof document === "undefined" || !name) {
     return "";
   }
@@ -83,7 +86,10 @@ export const isColor = (strColor: string) => {
 
 export const hexToRgb = (color: string): [number, number, number] => {
   const fullReg = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  const full = color.replace(fullReg, (_, r, g, b) => `${r}${r}${g}${g}${b}${b}`);
+  const full = color.replace(
+    fullReg,
+    (_, r, g, b) => `${r}${r}${g}${g}${b}${b}`
+  );
   const values = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(full);
 
   if (!values) {
@@ -97,7 +103,11 @@ export const hexToRgb = (color: string): [number, number, number] => {
   ];
 };
 
-export const hexFromString = (str: string, defaultColor: string = "", returnLast = false) => {
+export const hexFromString = (
+  str: string,
+  defaultColor: string = "",
+  returnLast = false
+) => {
   const fullReg = /#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}$/g;
   const hexCodes = str.match(fullReg);
 
@@ -119,7 +129,7 @@ export const colorToRgbValues = (colorProp: string) => {
   const regArray = safeColor.match(/\((.+)\)/);
 
   if (!colorType.startsWith("rgb") || !regArray) {
-    console.warn(`NextUI: Only supports ["RGB", "RGBA", "HEX"] color.`);
+    console.warn(`TechnextUI: Only supports ["RGB", "RGBA", "HEX"] color.`);
 
     return [0, 0, 0];
   }
@@ -183,5 +193,10 @@ export const invertHex = (hexProp: string, smooth = true) => {
   b = 255 - b;
 
   // pad each with zeros and return
-  return "#" + padZero(r.toString(16)) + padZero(g.toString(16)) + padZero(b.toString(16));
+  return (
+    "#" +
+    padZero(r.toString(16)) +
+    padZero(g.toString(16)) +
+    padZero(b.toString(16))
+  );
 };
