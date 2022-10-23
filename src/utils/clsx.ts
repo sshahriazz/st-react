@@ -30,7 +30,7 @@ function toVal(mix: any) {
   return str;
 }
 
-export default function (...args: any[]) {
+function clsx(...args: any[]) {
   var i = 0,
     tmp,
     x,
@@ -47,3 +47,5 @@ export default function (...args: any[]) {
 
   return str;
 }
+
+export default clsx;

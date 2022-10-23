@@ -9,7 +9,7 @@ import {
   grayDark,
 } from "./colors";
 
-export default {
+const darkTheme = {
   colors: {
     // background
     background: "$black",
@@ -84,3 +84,5 @@ export default {
     xl: "drop-shadow(0 25px 34px rgb(0 0 0 / 0.35))",
   },
 };
+
+export default darkTheme;
