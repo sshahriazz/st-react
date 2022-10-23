@@ -7,9 +7,13 @@
 
 Basically you can use the whole theme section from the nextui doc.
 
+[New Addition]() <br>
+
+- [Container](https://nextui.org/docs/layout/container)
+- [Grid](https://nextui.org/docs/layout/grid)
+- [Spacer](https://nextui.org/docs/layout/spacer)
+- [Text](https://nextui.org/docs/components/text)
+
 [Coming Soon]() <br>
 
-- Box
-- Container
-- Grid
-- Spacer
+- Import optimization
