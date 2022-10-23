@@ -57,6 +57,17 @@ function App() {
         <button onClick={() => setRtl((value) => !value)}>
           {rtl ? "rtl" : "ltr"}
         </button>
+        <Text
+          h5
+          size={20}
+          css={{
+            textGradient: "45deg, $blue600 -20%, $pink600 50%",
+          }}
+          weight="bold"
+        >
+          مرحبًا! صباح الخير
+        </Text>
+
         <GridContainer gap={2} justify="center">
           <Grid xs={4}>
             <Text
