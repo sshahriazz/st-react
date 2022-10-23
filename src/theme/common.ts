@@ -528,7 +528,7 @@ export const defaultThemeMap = {
   borderWidth: "borderWeights",
 };
 const commonTheme = {
-  prefix: "technext",
+  prefix: "tn",
   theme: {
     ...defaultTokens,
     colors: defaultColors,

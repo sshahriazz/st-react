@@ -1,6 +1,6 @@
 import React from "react";
 
-import {globalCss, getCssText} from "../theme/stitches.config";
+import { globalCss, getCssText } from "../theme/stitches.config";
 
 const globalStyles = globalCss({
   "*, *:before, *:after": {
@@ -238,9 +238,11 @@ const globalStyles = globalCss({
   },
 });
 
-const flushCSS = () => <style dangerouslySetInnerHTML={{__html: getCssText()}} id="stitches" />;
+const flushCSS = () => (
+  <style dangerouslySetInnerHTML={{ __html: getCssText() }} id="stitches" />
+);
 
-const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({children}) => {
+const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   globalStyles();
 
   return <React.Fragment>{children}</React.Fragment>;

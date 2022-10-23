@@ -1,9 +1,14 @@
 import React, { useState } from "react";
-import Grid from "./layout/grid";
-import GridContainer from "./layout/grid/grid-container";
-import Spacer from "./layout/spacer";
-import Text from "./text";
-import { createTheme, keyframes, styled, TNextUIProvider } from "./theme";
+import {
+  createTheme,
+  Grid,
+  keyframes,
+  Spacer,
+  styled,
+  Text,
+  TNextUIProvider,
+} from "stitches-system";
+import Box from "./layout/box";
 
 const fonts = {
   sans: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
@@ -14,12 +19,14 @@ const darkTheme = createTheme({
   type: "dark",
   theme: {
     fonts,
+    colors: {},
   },
 });
 const lightTheme = createTheme({
   type: "light",
   theme: {
     fonts,
+    colors: {},
   },
 });
 
@@ -39,7 +46,7 @@ function App() {
   const [rtl, setRtl] = useState(false);
   return (
     <TNextUIProvider theme={dark ? darkTheme : lightTheme}>
-      <div dir={rtl ? "rtl" : "ltr"}>
+      <Box dir={rtl ? "rtl" : "ltr"}>
         <StyledText
           h1
           size={30}
@@ -51,12 +58,38 @@ function App() {
           Hover ME
         </StyledText>
         <Spacer y={2} />
-        <button onClick={() => setDark((value) => !value)}>
-          {dark ? "dark" : "light"}
-        </button>
-        <button onClick={() => setRtl((value) => !value)}>
-          {rtl ? "rtl" : "ltr"}
-        </button>
+        <Grid.Container>
+          <Grid>
+            <Box
+              css={{
+                background: "$primary",
+                color: "$primarySolidContrast",
+                border: "unset",
+              }}
+              as="button"
+              onClick={() => setDark((value) => !value)}
+            >
+              {dark ? "dark" : "light"}
+            </Box>
+            <Text h3 css={{ color: "$redTime" }}>
+              Text red
+            </Text>
+          </Grid>
+          <Grid>
+            <Box
+              css={{
+                background: "$warning",
+                color: "$warningSolidContrast",
+                border: "unset",
+              }}
+              as="button"
+              onClick={() => setRtl((value) => !value)}
+            >
+              {rtl ? "rtl" : "ltr"}
+            </Box>
+          </Grid>
+        </Grid.Container>
+
         <Text
           h5
           size={20}
@@ -68,7 +101,7 @@ function App() {
           مرحبًا! صباح الخير
         </Text>
 
-        <GridContainer gap={2} justify="center">
+        <Grid.Container gap={2} justify="center">
           <Grid xs={4}>
             <Text
               h5
@@ -84,8 +117,8 @@ function App() {
           <Grid xs={4}>Item 2</Grid>
           <Grid xs={4}>Item 3</Grid>
           <Grid xs={4}>Item 4</Grid>
-        </GridContainer>
-      </div>
+        </Grid.Container>
+      </Box>
     </TNextUIProvider>
   );
 }

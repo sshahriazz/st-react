@@ -72,5 +72,5 @@ export type Colors = StitchesConfig["theme"]["colors"];
 export type Radii = StitchesConfig["theme"]["radii"];
 export type zIndices = StitchesConfig["theme"]["zIndices"];
 export type BorderWeights = StitchesConfig["theme"]["borderWeights"];
-export type Tranistions = StitchesConfig["theme"]["transitions"];
+export type Transitions = StitchesConfig["theme"]["transitions"];
 export type Breakpoints = StitchesConfig["theme"]["breakpoints"];
