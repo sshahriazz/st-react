@@ -21,6 +21,8 @@ Basically you can use the whole theme section from the nextui doc.
 - Keyframe animations
 - Spacer Component
 - Custom Font installation look at `public/index.html` & `App.tsx`
+- Light mode dark mode
+- LRT, RTL mode support
 
 [Coming Soon]() <br>
 

@@ -36,39 +36,45 @@ const StyledText = styled(Text, {
 
 function App() {
   const [dark, setDark] = useState(false);
+  const [rtl, setRtl] = useState(false);
   return (
     <TNextUIProvider theme={dark ? darkTheme : lightTheme}>
-      <StyledText
-        h1
-        size={30}
-        // css={{
-        //   textGradient: "45deg, $blue600 -20%, $pink600 50%",
-        // }}
-        weight="bold"
-      >
-        Hover ME
-      </StyledText>
-      <Spacer y={2} />
-      <button onClick={() => setDark((value) => !value)}>
-        {dark ? "dark" : "light"}
-      </button>
-      <GridContainer gap={2} justify="center">
-        <Grid xs={4}>
-          <Text
-            h5
-            size={20}
-            css={{
-              textGradient: "45deg, $blue600 -20%, $pink600 50%",
-            }}
-            weight="bold"
-          >
-            Let's Make the Web Prettier
-          </Text>
-        </Grid>
-        <Grid xs={4}>Item 2</Grid>
-        <Grid xs={4}>Item 3</Grid>
-        <Grid xs={4}>Item 4</Grid>
-      </GridContainer>
+      <div dir={rtl ? "rtl" : "ltr"}>
+        <StyledText
+          h1
+          size={30}
+          // css={{
+          //   textGradient: "45deg, $blue600 -20%, $pink600 50%",
+          // }}
+          weight="bold"
+        >
+          Hover ME
+        </StyledText>
+        <Spacer y={2} />
+        <button onClick={() => setDark((value) => !value)}>
+          {dark ? "dark" : "light"}
+        </button>
+        <button onClick={() => setRtl((value) => !value)}>
+          {rtl ? "rtl" : "ltr"}
+        </button>
+        <GridContainer gap={2} justify="center">
+          <Grid xs={4}>
+            <Text
+              h5
+              size={20}
+              css={{
+                textGradient: "45deg, $blue600 -20%, $pink600 50%",
+              }}
+              weight="bold"
+            >
+              Let's Make the Web Prettier
+            </Text>
+          </Grid>
+          <Grid xs={4}>Item 2</Grid>
+          <Grid xs={4}>Item 3</Grid>
+          <Grid xs={4}>Item 4</Grid>
+        </GridContainer>
+      </div>
     </TNextUIProvider>
   );
 }
