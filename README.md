@@ -17,3 +17,7 @@ Basically you can use the whole theme section from the nextui doc.
 [Coming Soon]() <br>
 
 - Import optimization
+
+[Future Plan]() <br>
+
+- Creating a separate package
