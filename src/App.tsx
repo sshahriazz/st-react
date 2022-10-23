@@ -16,9 +16,20 @@ function App() {
   const [dark, setDark] = useState(false);
   return (
     <TNextUIProvider theme={dark ? darkTheme : lightTheme}>
-      <p>hello world</p>
+      <Text
+        h1
+        size={30}
+        css={{
+          textGradient: "45deg, $blue600 -20%, $pink600 50%",
+        }}
+        weight="bold"
+      >
+        Hello World!
+      </Text>
       <Spacer y={2} />
-      <button onClick={() => setDark((value) => !value)}>Hello</button>
+      <button onClick={() => setDark((value) => !value)}>
+        {dark ? "dark" : "light"}
+      </button>
       <GridContainer gap={2} justify="center">
         <Grid xs={4}>
           <Text
