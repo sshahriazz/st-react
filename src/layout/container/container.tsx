@@ -117,7 +117,7 @@ const Container = React.forwardRef<
 
 Container.displayName = "NextUI.Container";
 
-Container.toString = () => ".nextui-container";
+Container.toString = () => ".technextui-container";
 
 type ComponentProps = Omit<Props, keyof typeof defaultProps> &
   Partial<typeof defaultProps> &

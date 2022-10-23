@@ -35,7 +35,7 @@ const GridContainer = React.forwardRef<
   return (
     <GridBasicItem
       ref={ref}
-      className={clsx("nextui-grid-container", className)}
+      className={clsx("technextui-grid-container", className)}
       css={{
         $$gridGapUnit: gapUnit,
         display: "flex",
@@ -53,7 +53,7 @@ const GridContainer = React.forwardRef<
 });
 
 GridContainer.displayName = "NextUI.GridContainer";
-GridContainer.toString = () => ".nextui-grid-container";
+GridContainer.toString = () => ".technextui-grid-container";
 
 type GridContainerComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>

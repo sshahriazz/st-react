@@ -110,7 +110,7 @@ const GridItem = React.forwardRef<
     return (
       <StyledGridItem
         ref={ref}
-        className={clsx("nextui-grid-item", classes, className)}
+        className={clsx("technextui-grid-item", classes, className)}
         css={{
           alignItems,
           alignContent,
@@ -155,7 +155,7 @@ const GridItem = React.forwardRef<
 );
 
 GridItem.displayName = "NextUI.GridItem";
-GridItem.toString = () => ".nextui-grid-item";
+GridItem.toString = () => ".technextui-grid-item";
 
 type GridItemComponent<T, P = {}> = React.ForwardRefExoticComponent<
   PropsWithoutRef<P> & RefAttributes<T>

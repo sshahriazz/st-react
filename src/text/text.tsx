@@ -132,6 +132,6 @@ if (__DEV__) {
   Text.displayName = "NextUI.Text";
 }
 
-Text.toString = () => ".nextui-text";
+Text.toString = () => ".technextui-text";
 
 export default React.memo(Text);
