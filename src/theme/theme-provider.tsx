@@ -1,16 +1,19 @@
-import React, {PropsWithChildren, useState, useMemo, useEffect} from "react";
-import {SSRProvider} from "@react-aria/ssr";
-import {OverlayProvider} from "@react-aria/overlays";
+import React, { PropsWithChildren, useState, useMemo, useEffect } from "react";
 
 import CssBaseline from "../css-baseline";
 import withDefaults from "../utils/with-defaults";
 import deepMerge from "../utils/deep-merge";
-import {copyObject} from "../utils/object";
+import { copyObject } from "../utils/object";
 import useSSR from "../use-ssr";
 
-import {changeTheme, getThemeName, getDocumentCSSTokens, getDocumentTheme} from "./utils";
-import {CreateTheme, NextUIThemeContext, ThemeType} from "./types";
-import ThemeContext, {defaultContext} from "./theme-context";
+import {
+  changeTheme,
+  getThemeName,
+  getDocumentCSSTokens,
+  getDocumentTheme,
+} from "./utils";
+import { CreateTheme, NextUIThemeContext, ThemeType } from "./types";
+import ThemeContext, { defaultContext } from "./theme-context";
 
 export interface Props {
   theme?: CreateTheme;
@@ -28,9 +31,11 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
   disableBaseline,
   children,
 }) => {
-  const {isBrowser} = useSSR();
+  const { isBrowser } = useSSR();
 
-  const [currentTheme, setCurrentTheme] = useState<ThemeType | string>(defaultContext.type);
+  const [currentTheme, setCurrentTheme] = useState<ThemeType | string>(
+    defaultContext.type
+  );
 
   const changeCurrentTheme = (type: ThemeType | string) => {
     setCurrentTheme((ct) => (ct !== type ? type : ct));
@@ -59,7 +64,11 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
     changeTypeBaseEl(document?.documentElement);
 
     const observer = new MutationObserver((mutation) => {
-      if (mutation && mutation.length > 0 && mutation[0]?.target.nodeName === "BODY") {
+      if (
+        mutation &&
+        mutation.length > 0 &&
+        mutation[0]?.target.nodeName === "BODY"
+      ) {
         const documentTheme = document?.body?.dataset?.theme;
 
         documentTheme && changeCurrentTheme(documentTheme);
@@ -79,7 +88,7 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
     });
 
     return () => observer.disconnect();
-  }, []);
+  });
 
   useEffect(() => {
     if (!isBrowser || !userTheme) {
@@ -92,14 +101,10 @@ const ThemeProvider: React.FC<PropsWithChildren<ThemeProviderProps>> = ({
   }, [isBrowser, userTheme]);
 
   return (
-    <SSRProvider>
-      <OverlayProvider>
-        <ThemeContext.Provider value={providerValue}>
-          {!disableBaseline && <CssBaseline />}
-          {children}
-        </ThemeContext.Provider>
-      </OverlayProvider>
-    </SSRProvider>
+    <ThemeContext.Provider value={providerValue}>
+      {!disableBaseline && <CssBaseline />}
+      {children}
+    </ThemeContext.Provider>
   );
 };
 

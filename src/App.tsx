@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { createTheme, styled } from "./theme";
-import ThemeProvider from "./theme/theme-provider";
+import { createTheme, TNextUIProvider, styled } from "./theme";
+// import ThemeProvider from "./theme/theme-provider";
 
 const StyledButton = styled("button", {
   backgroundColor: "$success",
@@ -37,9 +37,9 @@ const lightTheme = createTheme({
 });
 
 function App() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
   return (
-    <ThemeProvider
+    <TNextUIProvider
       disableBaseline={false}
       theme={dark ? darkTheme : lightTheme}
     >
@@ -62,7 +62,7 @@ function App() {
           </a>
         </header>
       </div>
-    </ThemeProvider>
+    </TNextUIProvider>
   );
 }
 
