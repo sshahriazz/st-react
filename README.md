@@ -14,6 +14,13 @@ Basically you can use the whole theme section from the nextui doc.
 - [Spacer](https://nextui.org/docs/layout/spacer)
 - [Text](https://nextui.org/docs/components/text)
 
+## Demo Contains `App.tsx`
+
+- Text Component
+- Grid Component
+- Keyframe animations
+- Spacer Component
+
 [Coming Soon]() <br>
 
 - Import optimization
