@@ -1,33 +1,9 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { createTheme, TNextUIProvider, styled } from "./theme";
-// import ThemeProvider from "./theme/theme-provider";
-
-const StyledButton = styled("button", {
-  backgroundColor: "$success",
-  borderRadius: "9999px",
-  fontSize: "13px",
-  lineHeight: "1",
-  fontWeight: 500,
-  paddingTop: "10px",
-  color: "$successSolidContrast",
-  paddingBottom: "10px",
-  paddingLeft: "16px",
-  paddingRight: "16px",
-  border: "0",
-  variants: {
-    color: {
-      red: { color: "$primarySolidContrast" },
-    },
-  },
-
-  // Pseudo-class selector
-  ":hover": {
-    transform: "translateY(-2px)",
-    boxShadow: "0 10px 25px rgba(0, 0, 0, .3)",
-  },
-});
+import Grid from "./layout/grid";
+import GridContainer from "./layout/grid/grid-container";
+import Spacer from "./layout/spacer";
+import Text from "./text";
+import { createTheme, TNextUIProvider } from "./theme";
 
 const darkTheme = createTheme({
   type: "dark",
@@ -37,31 +13,29 @@ const lightTheme = createTheme({
 });
 
 function App() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] = useState(false);
   return (
-    <TNextUIProvider
-      disableBaseline={false}
-      theme={dark ? darkTheme : lightTheme}
-    >
-      <div className="App">
-        <StyledButton onClick={() => setDark((value) => !value)}>
-          Hello
-        </StyledButton>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+    <TNextUIProvider theme={dark ? darkTheme : lightTheme}>
+      <p>hello world</p>
+      <Spacer y={2} />
+      <button onClick={() => setDark((value) => !value)}>Hello</button>
+      <GridContainer gap={2} justify="center">
+        <Grid xs={4}>
+          <Text
+            h5
+            size={20}
+            css={{
+              textGradient: "45deg, $blue600 -20%, $pink600 50%",
+            }}
+            weight="bold"
           >
-            Learn React
-          </a>
-        </header>
-      </div>
+            Let's Make the Web Prettier
+          </Text>
+        </Grid>
+        <Grid xs={4}>Item 2</Grid>
+        <Grid xs={4}>Item 3</Grid>
+        <Grid xs={4}>Item 4</Grid>
+      </GridContainer>
     </TNextUIProvider>
   );
 }
