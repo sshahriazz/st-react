@@ -20,6 +20,7 @@ Basically you can use the whole theme section from the nextui doc.
 - Grid Component
 - Keyframe animations
 - Spacer Component
+- Custom Font installation look at `public/index.html` & `App.tsx`
 
 [Coming Soon]() <br>
 
