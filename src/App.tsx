@@ -8,7 +8,6 @@ import {
   Text,
   TNextUIProvider,
 } from "stitches-system";
-import Box from "./layout/box";
 
 const fonts = {
   sans: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
@@ -40,6 +39,8 @@ const StyledText = styled(Text, {
     animation: `${scaleUp} 1000ms`,
   },
 });
+
+const Box = styled("div", {});
 
 function App() {
   const [dark, setDark] = useState(false);

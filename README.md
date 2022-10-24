@@ -16,6 +16,8 @@ Basically you can use the whole theme section from the nextui doc.
 
 ## Demo Contains `App.tsx`
 
+[Repo: st-react](https://github.com/sshahriazz/st-react/tree/from-package)
+
 - Text Component
 - Grid Component
 - Keyframe animations
